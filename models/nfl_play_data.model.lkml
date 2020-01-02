@@ -73,7 +73,7 @@ explore: teams_players {
 
 explore: xa_field_goals {
   join: dates {
-    type: left_outer
+    type: inner
     sql_on: ${xa_field_goals.game_date} = ${dates.game_date} ;;
     relationship: many_to_one
   }

@@ -4,6 +4,7 @@ view: xa_field_goals {
 
   dimension: game_date {
     type: date
+    datatype: date
     sql: ${TABLE}.game_date ;;
   }
 
