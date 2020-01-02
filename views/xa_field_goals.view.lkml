@@ -9,16 +9,19 @@ view: xa_field_goals {
 
   dimension: game_id {
     type: number
+    value_format_name: id
     sql: ${TABLE}.game_id ;;
   }
 
   dimension: play_id {
     type: number
+    value_format_name: id
     sql: ${TABLE}.play_id ;;
   }
 
-  dimension: season_nbr {
+  dimension: season {
     type: number
+    value_format_name: id
     sql: ${TABLE}.season_nbr ;;
   }
 
@@ -69,6 +72,7 @@ view: xa_field_goals {
 
   dimension: kicker_player_id {
     type: number
+    value_format_name: id
     sql: ${TABLE}.kicker_player_id ;;
   }
 
@@ -143,6 +147,7 @@ view: xa_field_goals {
 
   measure: successful_field_goal_percent {
     description: "% of successful field goals"
+    type: number
     value_format_name: percent_2
     sql: ${field_goal_successes}/${field_goal_attempts} ;;
   }
