@@ -5,7 +5,7 @@ include: "/views/**/*.view"
 
 datagroup: nfl_play_data_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
-  max_cache_age: "1 hour"
+  max_cache_age: "72 hours"
 }
 
 persist_with: nfl_play_data_default_datagroup
@@ -17,6 +17,7 @@ explore: games {}
 explore: players {}
 
 explore: plays {
+
   join: games {
     type: left_outer
     sql_on: ${plays.game_id} = ${games.game_id} ;;
@@ -65,6 +66,15 @@ explore: teams_players {
   join: teams {
     type: left_outer
     sql_on: ${teams_players.team_code} = ${teams.team_code} ;;
+    relationship: many_to_one
+  }
+
+}
+
+explore: xa_field_goals {
+  join: dates {
+    type: left_outer
+    sql_on: ${xa_field_goals.game_date} = ${dates.game_date} ;;
     relationship: many_to_one
   }
 
