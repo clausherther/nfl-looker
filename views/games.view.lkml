@@ -18,25 +18,6 @@ view: games {
     sql: ${TABLE}.away_team_code ;;
   }
 
-  dimension: dbt_batch_id {
-    type: string
-    sql: ${TABLE}.dbt_batch_id ;;
-  }
-
-  dimension_group: dbt_batch_ts {
-    type: time
-    timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    sql: ${TABLE}.dbt_batch_ts ;;
-  }
-
   dimension_group: game {
     type: time
     timeframes: [

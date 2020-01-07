@@ -2,8 +2,18 @@ view: xa_field_goals {
   # # You can specify the table name if it's different from the view name:
   sql_table_name: analysis.xa_field_goals ;;
 
-  dimension: game_date {
-    type: date
+  dimension_group: game {
+    type: time
+    timeframes: [
+      # raw,
+      date,
+      day_of_week,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
     datatype: date
     sql: ${TABLE}.game_date ;;
   }
