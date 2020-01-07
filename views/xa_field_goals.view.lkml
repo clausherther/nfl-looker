@@ -8,6 +8,12 @@ view: xa_field_goals {
     sql: ${TABLE}.game_date ;;
   }
 
+  dimension: week {
+    type: number
+    value_format_name: id
+    sql: ${TABLE}.week_nbr ;;
+  }
+
   dimension: game_id {
     type: number
     value_format_name: id
@@ -29,6 +35,11 @@ view: xa_field_goals {
   dimension: season_type_code {
     type: string
     sql: ${TABLE}.season_type_code ;;
+  }
+
+  dimension: season_week_code {
+    type: string
+    sql: ${TABLE}.season_week_code ;;
   }
 
   dimension: season_code {
