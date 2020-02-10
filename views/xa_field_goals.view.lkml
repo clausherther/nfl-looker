@@ -1,4 +1,4 @@
-view: xa_field_goals {
+view: field_goals {
   # # You can specify the table name if it's different from the view name:
   sql_table_name: analysis.xa_field_goals ;;
 
@@ -83,16 +83,19 @@ view: xa_field_goals {
   }
 
   dimension: off_team_code {
+    label: "Team Code"
     type: string
     sql: ${TABLE}.off_team_code ;;
   }
 
   dimension: def_team_code {
+    hidden: yes
     type: string
     sql: ${TABLE}.def_team_code ;;
   }
 
   dimension: kicker_player_id {
+    hidden: yes
     type: number
     value_format_name: id
     sql: ${TABLE}.kicker_player_id ;;
@@ -168,6 +171,7 @@ view: xa_field_goals {
   }
 
   measure: successful_field_goal_percent {
+    label: "Field Goal %"
     description: "% of successful field goals"
     type: number
     value_format_name: percent_2

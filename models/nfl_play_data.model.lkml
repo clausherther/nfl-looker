@@ -71,4 +71,4 @@ explore: teams_players {
 
 }
 
-explore: xa_field_goals {}
+explore: field_goals {}
